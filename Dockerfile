@@ -29,8 +29,9 @@ RUN apt update && apt full-upgrade -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ## Installing DBeaver
-RUN curl -o /tmp/dbeaver-ce_latest_amd64.deb https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb \
-    && apt install -y /tmp/dbeaver-ce_latest_amd64.deb && rm /tmp/dbeaver-ce_latest_amd64.deb
+RUN curl -o /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz https://dbeaver.io/files/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz \
+    && tar -xvzf /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz -C /home/kasm-user \
+    && rm /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
 
 ## Installing Netbeans
 RUN mkdir -p /usr/netbeans \
