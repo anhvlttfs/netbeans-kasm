@@ -28,12 +28,10 @@ RUN apt update && apt full-upgrade -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-## Installing DBeaver
-RUN curl -o /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz https://dbeaver.io/files/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz \
-    && tar -xvzf /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz -C /home/kasm-user \
-    && chmod +x /home/kasm-user/dbeaver/dbeaver \
-    && rm /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
-COPY ./dbeaver.desktop /home/kasm-user/Desktop/dbeaver.desktop
+## Installing Azure Data Studio
+RUN curl -o /tmp/azuredatastudio-linux-1.52.0.deb https://download.microsoft.com/download/6b2bfeac-9c1b-4182-9a2f-ce86ff8cc371/azuredatastudio-linux-1.52.0.deb \
+    && apt install -y /tmp/azuredatastudio-linux-1.52.0.deb -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" \
+    && rm /tmp/azuredatastudio-linux-1.52.0.deb
 
 ## Installing Netbeans
 RUN mkdir -p /usr/netbeans \
