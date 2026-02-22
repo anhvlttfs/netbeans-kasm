@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=NetBeans IDE
+Comment=Open NetBeans IDE
+Exec=/home/kasm-user/netbeans/bin/netbeans %F
+Terminal=false
+Categories=Development;IDE;
