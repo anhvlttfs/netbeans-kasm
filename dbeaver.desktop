@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=dbeaver-ce
+GenericName=Universal Database Manager
+Comment=Universal Database Manager and SQL Client.
+Path=/home/kasm-user/dbeaver
+Exec=env NO_AT_BRIDGE=1 /home/kasm-user/dbeaver %U
+Categories=IDE;Development
+StartupWMClass=DBeaver
+StartupNotify=true
+Keywords=Database;SQL;IDE;JDBC;ODBC;MySQL;PostgreSQL;Oracle;DB2;MariaDB
+MimeType=application/sql

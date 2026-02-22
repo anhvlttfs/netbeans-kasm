@@ -31,7 +31,9 @@ RUN apt update && apt full-upgrade -y \
 ## Installing DBeaver
 RUN curl -o /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz https://dbeaver.io/files/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz \
     && tar -xvzf /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz -C /home/kasm-user \
+    && chmod +x /home/kasm-user/dbeaver/dbeaver \
     && rm /tmp/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
+COPY ./dbeaver.desktop /home/kasm-user/Desktop/dbeaver.desktop
 
 ## Installing Netbeans
 RUN mkdir -p /usr/netbeans \
@@ -39,7 +41,6 @@ RUN mkdir -p /usr/netbeans \
     && unzip /tmp/netbeans-28-bin.zip -d /home/kasm-user \
     && rm /tmp/netbeans-28-bin.zip \
     && chmod +x /home/kasm-user/netbeans/bin/netbeans
-
 COPY ./netbeans.desktop /home/kasm-user/Desktop/netbeans.desktop
 RUN chown -R 1000:0 /home/kasm-user/Desktop  \
     && chmod 644 /home/kasm-user/Desktop/netbeans.desktop
